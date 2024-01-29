@@ -1,0 +1,26 @@
+ScreenManager:
+    MysteryPageA:
+        name: "First"
+    MysteryPageB:
+        name: "Second"
+
+<MysteryPageA>:
+    MDLabel:
+        text: "This is MysteryPageA"
+        font_size: "32pt"
+        halign: "center"
+    MDFloatingActionButton:
+        icon: "pencil-outline"
+        style: "standard"
+        on_press:
+            root.message1()
+<MysteryPageB>:
+    MDLabel:
+        text: "This is MysteryPageB"
+        font_size: "32pt"
+        halign: "center"
+    MDFloatingActionButton:
+        icon: "pencil-outline"
+        style: "standard"
+        on_press:
+            root.message2()

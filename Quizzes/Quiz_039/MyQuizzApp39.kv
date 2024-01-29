@@ -1,0 +1,38 @@
+Screen:
+    size:500,500
+    md_bg_color:"white"
+    MDBoxLayout:
+        id:box_main
+        orientation: "horizontal"
+        size_hint: 0.7,0.3
+        pos_hint: {"center_x":0.5,"center_y":0.5}
+
+
+        MDLabel:
+            id:label_counter
+            halign:"center"
+            valign:"center"
+            text:"Count 0"
+            font_size:34
+            size_hint:0.3,1
+            md_bg_color:"pink"
+
+
+
+        MDRaisedButton:
+            id:add_button
+            text: "Add +1"
+            pos_hint: {"center_x":0.5}
+            size_hint:0.3,1
+            font_size: 34
+            on_release:
+                app.add_counter()
+
+        MDRaisedButton:
+            id:reduce_button
+            text:"Reduce -1"
+            pos_hint: {"center_x":0.5}
+            size_hint:0.3,1
+            font_size: 34
+            on_release:
+                app.reduce_counter()

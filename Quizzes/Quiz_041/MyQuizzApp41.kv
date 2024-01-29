@@ -1,0 +1,52 @@
+Screen:
+    size: 500, 500
+    MDBoxLayout:
+        size_hint: 0.8, 0.8
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        md_bg_color:"black"
+        orientation: "vertical"
+
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+            md_bg_color:"white"
+
+
+            MDLabel:
+                id: player_turn
+                text: "X player's turn"
+                font_size: "24pt"
+                halign: "center"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+            md_bg_color:"yellow"
+            MyButton:
+            MyButton:
+            MyButton:
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+            md_bg_color:"white"
+            MyButton:
+            MyButton:
+            MyButton:
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.25
+            md_bg_color:"yellow"
+            MyButton:
+            MyButton:
+            MyButton:
+
+<MyButton>:
+    size_hint: 1, 1
+    color: "white"
+    md_bg_color:"blue"
+    font_size: "48pt"
+    on_press:
+        app.button_pressed(self)

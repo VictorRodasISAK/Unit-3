@@ -1,3 +1,7 @@
+# Quiz 035
+## A class named Converter. The class initializes with a dictionary with key decimal numbers and values the letters of the Roman numeral system. No inputs in the initializer.
+### Python code
+```.py
 class Convert:
     def __init__(self):
         self.roman_symbols = {
@@ -20,6 +24,19 @@ class Convert:
                 output += value * q
                 decimal %= key
         return output
+```
 
-number = int(input("Enter a number: "))
-print(Convert().convert_to_roman(number))
+
+### Proof
+![Quiz_035_Proof.png](Quiz_035_Proof.png)
+
+*Fig.1* Quiz 035 Proof Image
+
+### UML Diagram
+![Quiz_035_UML_Diagram.png](Quiz_035_UML_Diagram.png)
+
+*Fig.2* Quiz 035 UML Diagram Image
+
+### Paper work
+![Quiz_035_Work_Notebook.jpeg](Quiz_035_Work_Notebook.jpeg)
+*Fig.3* Quiz 035 Paper work

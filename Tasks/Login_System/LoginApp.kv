@@ -1,0 +1,74 @@
+ScreenManager:
+    PageA:
+        name: "First"
+    PageB:
+        name: "Second"
+
+<PageA>:
+    MDCard:
+        size_hint: None, None
+        size: 600, 700
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        elevation: 10
+        padding: 25
+        spacing: 25
+        orientation: "vertical"
+        md_bg_color: "black"
+        MDLabel:
+            text: "W  E  L  C  O  M  E  !"
+            font_size: 30
+            halign: "center"
+            size_hint_y: None
+            padding_y: 1
+        Image:
+            source: "Logo.png"
+            size_hint: 0.8, 0.8
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+        MDTextField:
+            id: user
+            hint_text: "username"
+            icon_right: "account"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+
+        MDTextField:
+            id: password
+            hint_text: "password"
+            icon_right: "eye-off"
+            size_hint_x: None
+            width: 200
+            font_size: 18
+            pos_hint: {"center_x": 0.5}
+            password: True
+
+
+        MDRoundFlatButton:
+            text: "LOG IN"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_press:
+                app.logger()
+
+        MDRoundFlatButton:
+            text: "CLEAR"
+            font_size: 12
+            pos_hint: {"center_x": 0.5}
+            on_press:
+                app.clear()
+
+
+
+<PageB>:
+    MDLabel:
+        text: "Welcome Victor"
+        font_size: "32pt"
+        halign: "center"
+    MDRoundFlatButton:
+        text: "RETURN"
+        font_size: 12
+        pos_hint: {"center_x": 0.5, "center_y":0.3}
+        on_press:
+            app.return_main()

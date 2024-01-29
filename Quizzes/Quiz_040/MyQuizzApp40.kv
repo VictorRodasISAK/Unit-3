@@ -1,0 +1,18 @@
+Screen:
+    size: 500, 500
+
+    MDLabel:
+        id:my_label
+        text: "Victor Rodas"
+        font_size: "30pt"
+        halign: "center"
+
+    MDRaisedButton:
+        id:my_btn
+        text: "Dark mode"
+        size_hint: 0.1, 0.1
+        pos_hint: {"center_x" : 0.05, "center_y": 0.03}
+        color: "white"
+        md_bg_color: "blue"
+        on_press:
+            app.button_pressed()

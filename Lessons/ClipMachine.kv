@@ -1,0 +1,67 @@
+Screen:
+    size: 500, 500
+    MDBoxLayout:
+        size_hint: 0.8, 0.8
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        md_bg_color: "#FF4455"
+        orientation: "horizontal"
+
+        FitImage:
+            size_hint: 0.2, 1
+            source: "pc.jpeg"
+            md_bg_color: "white"
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint: 0.8, 1
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                MyLabel:
+                    text: "Money"
+                MyLabel:
+                    id:money_label
+                    text: "¥5000"
+
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                MyLabel:
+                    text: "Wire"
+                MyLabel:
+                    id:wire_label
+                    text: "50m"
+                MyLabel:
+                    text: "¥500/meter"
+                MDRaisedButton:
+                    text:"Buy"
+                    size:1,1
+                    on_press:
+                        app.buy_wire()
+
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                MyLabel:
+                    text: "Clip"
+                MyLabel:
+                    text: "0.01m of wire"
+                MDRaisedButton:
+                    text:"Buy"
+                    size:1,1
+                    on_press:
+                        app.make_clip()
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                MyLabel:
+                    text: "Clips"
+                MyLabel:
+                    text: "1000"
+
+            MDBoxLayout:
+                size_hint: 1, 0.2
+                MyLabel:
+                    text: "Price ¥"
+                MyLabel:
+                    text: "1000"
+                    on_text:
+                        app.price_changed(self)
+<MyLabel>:
+    font_size: "25pt"
+    halign: "center"
