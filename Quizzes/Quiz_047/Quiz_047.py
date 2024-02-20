@@ -86,6 +86,23 @@ class quiz047(MDApp):
         self.root.ids["salary_label"].text = " JPY"
         self.root.ids.hash.text = "----"
 
+    def check_fraud(self):
+        query = """Select * from payments"""
+        info = self.db_connection.search(query, multiple=True)
+        for row in info:
+            id = row[0]
+            base = row[1]
+            inhabitant = row[2]
+            income_tax = row[3]
+            pension = row[4]
+            health = row[5]
+            total = row[6]
+            hash = row[7]
+            if check_hash(hash, make_hash(f'id {id},sender_id {base},receiver_id {inhabitant},amount {income_tax},pension {pension},health {health},total {total}')):
+                print(f"Txn ID: {id} Signature matches")
+            else:
+                print(f"Txn ID: {id} Signature does not match")
+
 
 test = quiz047()
 create = """CREATE TABLE if not exists payments(
@@ -100,6 +117,8 @@ create = """CREATE TABLE if not exists payments(
     )"""
 my_db = DatabaseWorker("payments.db")
 my_db.run_query(create)
+
+test.check_fraud()
 
 my_db.close()
 test.run()
