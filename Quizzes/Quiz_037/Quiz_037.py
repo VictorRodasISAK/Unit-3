@@ -16,5 +16,5 @@ class Accounting(Compound_Interest):
     def get_message(self):
         return f"{self.name} will have ${self.calculate():.2f} in {self.years} years if the principal is {self.principal} USD, with {self.rate} annual compund interest"
 
-victor = Accounting(name="Victor", email="vic@gmail.com", principal= 100, rate = 0.1, years = 10)
+victor = Accounting(name="Victor", email="vic@gmail.com", principal= 1000, rate = 0.1, years = 10)
 print(victor.get_message())

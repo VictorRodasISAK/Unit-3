@@ -1,0 +1,41 @@
+ScreenManager:
+    id: scr
+    SignupScreen:
+        name: "Sign_scr"
+    LoginScreen:
+        name: "Login_scr"
+
+
+<LoginScreen>:
+
+<SignupScreen>:
+    size: 500, 500
+    FitImage:
+        source: "back.jpeg"
+        size_hint: 1, 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    MDCard:
+        size_hint: 0.4, 0.6
+        elevation: 2
+        orientation: "vertical"
+        pos_hint: {'center_x': 0.3, 'center_y': 0.7}
+
+        MDTextField:
+            id: uname
+            hint_text: "Username"
+            icon_left: "account"
+        MDTextField:
+            id: uemail
+            hint_text: "Email"
+            icon_left: "account"
+        MDTextField:
+            id: upass
+            hint_text: "Password"
+            icon_left: "account"
+        MDRaisedButton:
+            id: login
+            text: "Signup"
+            on_press:
+                root.try_signup()
+            size_hint: 0.3, 1
+
