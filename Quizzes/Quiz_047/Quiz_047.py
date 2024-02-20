@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-from Lessons.Lesson_Library_Login import DatabaseWorker, make_hash, check_hash
+from Lessons.Lesson_Library_Login import DatabaseWorker, make_hash
 
 
 class quiz047(MDApp):
@@ -10,25 +10,7 @@ class quiz047(MDApp):
 
     def build(self):
         return
-
-    def save(self):
-        pass
-
     def update(self):
-        #This function updates all the labels in the form using the base salary and the percentage
-        # Pseudocode
-        # 1- get the base salary from the GUI
-        # 2- if base salary define total=int(base) and an empty string to store build a hash (for_hash="") if no base then end the function
-        # 3- for Each TextField with ids: "inhabitant","income_tax","pension","health" get the text property
-        # 4- if the TextField.text has a number (value), calculate the equation new_value="(base*int(value)//100) JPY" and subbctract the equation to the total
-        # 5- if no: then new_value = " JPY"
-        # 6- set the label next to the TextField (inhabitant_label, income_tax_label, etc) to the variable new_value
-        # 7- concatenate to the hash variable the f"{id}{value}"
-        # 8- set the text of the element id=total to the total with the JPY symbol
-        # 9- encrypt the hash and change the text of the label with id=hash to the last 50 characters of the hash
-
-        #calculate total
-        ids = ["inhabitant", "income_tax", "pension", "health"]
         base = self.root.ids.base.text
         if base:
             base_int = int(base)
@@ -56,10 +38,6 @@ class quiz047(MDApp):
             self.components["pension"] = pension_jpy
             self.components["health"] = health_jpy
             self.components["total"] = total
-        # update the percentage
-
-
-
     def save(self):
         hash = make_hash(self.components["hash"])
         base_int = self.components["base"]
@@ -86,22 +64,6 @@ class quiz047(MDApp):
         self.root.ids["salary_label"].text = " JPY"
         self.root.ids.hash.text = "----"
 
-    def check_fraud(self):
-        query = """Select * from payments"""
-        info = self.db_connection.search(query, multiple=True)
-        for row in info:
-            id = row[0]
-            base = row[1]
-            inhabitant = row[2]
-            income_tax = row[3]
-            pension = row[4]
-            health = row[5]
-            total = row[6]
-            hash = row[7]
-            if check_hash(hash, make_hash(f'id {id},sender_id {base},receiver_id {inhabitant},amount {income_tax},pension {pension},health {health},total {total}')):
-                print(f"Txn ID: {id} Signature matches")
-            else:
-                print(f"Txn ID: {id} Signature does not match")
 
 
 test = quiz047()
@@ -117,8 +79,6 @@ create = """CREATE TABLE if not exists payments(
     )"""
 my_db = DatabaseWorker("payments.db")
 my_db.run_query(create)
-
-test.check_fraud()
 
 my_db.close()
 test.run()

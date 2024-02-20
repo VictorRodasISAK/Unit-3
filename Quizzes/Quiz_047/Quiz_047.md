@@ -4,7 +4,7 @@
 
 ```python
 from kivymd.app import MDApp
-from Lessons.Lesson_Library_Login import DatabaseWorker, make_hash, check_hash
+from Lessons.Lesson_Library_Login import DatabaseWorker, make_hash
 
 
 class quiz047(MDApp):
@@ -15,25 +15,7 @@ class quiz047(MDApp):
 
     def build(self):
         return
-
-    def save(self):
-        pass
-
     def update(self):
-        #This function updates all the labels in the form using the base salary and the percentage
-        # Pseudocode
-        # 1- get the base salary from the GUI
-        # 2- if base salary define total=int(base) and an empty string to store build a hash (for_hash="") if no base then end the function
-        # 3- for Each TextField with ids: "inhabitant","income_tax","pension","health" get the text property
-        # 4- if the TextField.text has a number (value), calculate the equation new_value="(base*int(value)//100) JPY" and subbctract the equation to the total
-        # 5- if no: then new_value = " JPY"
-        # 6- set the label next to the TextField (inhabitant_label, income_tax_label, etc) to the variable new_value
-        # 7- concatenate to the hash variable the f"{id}{value}"
-        # 8- set the text of the element id=total to the total with the JPY symbol
-        # 9- encrypt the hash and change the text of the label with id=hash to the last 50 characters of the hash
-
-        #calculate total
-        ids = ["inhabitant", "income_tax", "pension", "health"]
         base = self.root.ids.base.text
         if base:
             base_int = int(base)
@@ -61,10 +43,6 @@ class quiz047(MDApp):
             self.components["pension"] = pension_jpy
             self.components["health"] = health_jpy
             self.components["total"] = total
-        # update the percentage
-
-
-
     def save(self):
         hash = make_hash(self.components["hash"])
         base_int = self.components["base"]
@@ -90,6 +68,7 @@ class quiz047(MDApp):
 
         self.root.ids["salary_label"].text = " JPY"
         self.root.ids.hash.text = "----"
+
 
 
 test = quiz047()
@@ -124,3 +103,8 @@ test.db_connection.close()
 ![ER_Diagram.png](ER_Diagram.png)
 
 *Fig.2* ER Diagram
+
+### UML Diagram
+![UML_Diagram.png](UML_Diagram.png)
+
+*Fig.3* UML Diagram
