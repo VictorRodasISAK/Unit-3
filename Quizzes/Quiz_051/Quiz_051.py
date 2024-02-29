@@ -14,10 +14,10 @@ class Airline:
 
 
 flight = Airline("AA123", "JFK", "LAX", "12:00", [5, 30, 0])
-print(flight.get_flight_info())
+
 
 flight2 = Airline("AA124", "JFK", "GUA", "17:00", [8, 35, 20])
-print(flight2.get_flight_info())
+
 
 
 
